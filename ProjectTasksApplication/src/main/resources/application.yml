@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: Project-Task-App
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project_tasks_db
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-milliseconds: 86400000
